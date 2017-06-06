@@ -21,7 +21,7 @@ var SendMessage = React.createClass({
         "X-Access-Token": "BGil3vVRxa89yPYS30uEVochMQ32vKDy4PRcQRxs"
       },
       method: 'POST',
-      url: "https://api.groupme.com/v3/groups/11518960/messages",
+      url: "https://api.groupme.com/v3/groups/31465394/messages",
       dataType: 'json',
       contentType: "application/json",
       data: JSON.stringify({
