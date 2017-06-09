@@ -4,34 +4,33 @@ var ReactDOM = require('react-dom')
 var SendMessage = React.createClass({
   getInitialState: function () {
     return {
-      message: "",
+      message: '',
     }
   },
   postMessage: function () {
     $.ajax({
       headers: {
-        "X-Access-Token": "BGil3vVRxa89yPYS30uEVochMQ32vKDy4PRcQRxs"
+        'X-Access-Token': 'BGil3vVRxa89yPYS30uEVochMQ32vKDy4PRcQRxs'
       },
       method: 'POST',
-      url: "https://api.groupme.com/v3/groups/11518960/messages",
+      url: 'https://api.groupme.com/v3/groups/31465394/messages',
       dataType: 'json',
-      contentType: "application/json",
+      contentType: 'application/json',
       data: JSON.stringify({
-        "message": {
-          "source_guid": Math.floor((Math.random() *1000000) +1),
-          "text": this.state.message,
+        'message': {
+          'source_guid': Math.floor((Math.random() *1000000) +1),
+          'text': this.state.message,
         }
       }),
       success: function(results){
         var str = JSON.stringify(results, null, 2);
-        $(".display").text(str)
+        $('.display').text(str)
         console.log(results)
       },
       error: function() {
         console.log(this.url)
       }
     })
-    console.log('post message', this.state)
   },
   handleChange: function(event) {
     console.log(this.state.message)
@@ -41,12 +40,12 @@ var SendMessage = React.createClass({
     return (
       <div>
         enter message:
-        <textarea rows="4" cols="50" value={this.state.message}
+        <textarea rows='4' cols='50' value={this.state.message}
           onChange={this.handleChange}></textarea>
         <button onClick={this.postMessage}>
           send </button>
         <h3>{this.state.message}</h3>
-        <p className="display"></p>
+        <p className='display'></p>
       </div>
     )
   }
@@ -57,14 +56,14 @@ ReactDOM.render(<SendMessage />,
 
 $.ajax({
   headers: {
-    "X-Access-Token": "BGil3vVRxa89yPYS30uEVochMQ32vKDy4PRcQRxs"
+    'X-Access-Token': 'BGil3vVRxa89yPYS30uEVochMQ32vKDy4PRcQRxs'
   },
   method: 'GET',
-  url: "https://api.groupme.com/v3/groups",
+  url: 'https://api.groupme.com/v3/groups',
   dataType: 'json',
   success: function(results){
     var str = JSON.stringify(results, null, 2);
-    $(".display").text(str)
+    $('.display').text(str)
     console.log(results)
   },
   error: function() {
